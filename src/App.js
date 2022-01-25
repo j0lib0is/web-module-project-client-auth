@@ -15,10 +15,10 @@ function App() {
     <Router>
       <div className="App">
         <ul>
-          {!isLoggedIn && <li><Link to='/'>Log In</Link></li>}
           {isLoggedIn && <li><Link to='/friends'>Friend's List</Link></li>}
-          {isLoggedIn && <li><Link to='/logout'>Log Out</Link></li>}
           {isLoggedIn && <li><Link to='/friends/add'>Add Friend</Link></li>}
+          {/* {!isLoggedIn && <li><Link to='/'>Log In</Link></li>} */}
+          {isLoggedIn && <li><Link to='/logout'>Log Out</Link></li>}
         </ul>
         <h1>Client Auth Project</h1>
         <Switch>

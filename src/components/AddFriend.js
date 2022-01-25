@@ -21,9 +21,9 @@ class AddFriend extends React.Component {
 	handleSubmit = event => {
 		event.preventDefault();
 		axiosWithAuth()
-			.post('http://localhost:9000/api/friends', this.state.friend)
+			.post('/friends', this.state.friend)
 			.then(res => {
-				console.log(res);
+				this.props.history.push('/friends');
 			})
 			.catch(err => console.error(err));
 	}

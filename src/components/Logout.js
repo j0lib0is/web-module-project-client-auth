@@ -6,10 +6,8 @@ const Logout = () => {
 	const { push } = useHistory();
 
 	useEffect(() => {
-		const token = localStorage.getItem('token');
-
 		axiosWithAuth()
-			.post('http://localhost:9000/api/logout')
+			.post('/logout')
 			.then(res => {
 				localStorage.removeItem('token');
 				localStorage.removeItem('username');

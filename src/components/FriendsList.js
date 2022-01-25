@@ -7,14 +7,13 @@ class FriendsList extends React.Component {
 	};
 	
 	componentDidMount() {
-		console.log(this.state.friends);
 		const token = localStorage.getItem('token');
 
 		axiosWithAuth()
-			.get('http://localhost:9000/api/friends')
+			.get('/friends')
 			.then(res => {
 				this.setState({
-					friends: res,
+					friends: res.data,
 				});
 			})
 			.catch(err => console.error(err));
@@ -24,9 +23,9 @@ class FriendsList extends React.Component {
 		return (
 			<div>
 				<h2>Friend's List</h2>
-				{/* {this.state.friends.map(friend => {
+				{this.state.friends.map(friend => {
 					return <p>{friend.name} - {friend.email}</p>;
-				})} */}
+				})}
 			</div>
 		);
 	}
