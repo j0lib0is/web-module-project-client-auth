@@ -34,15 +34,18 @@ class AddFriend extends React.Component {
 				<h2>Add Friend</h2>
 				<form onSubmit={this.handleSubmit}>
 					<input
+						className='firstInput'
 						type='text'
 						name='name'
 						value={this.state.friend.name}
+						placeholder='Name'
 						onChange={this.handleChange}
 					/>
 					<input
 						type='email'
 						name='email'
 						value={this.state.friend.email}
+						placeholder='Email'
 						onChange={this.handleChange}
 					/>
 					<button>Add Friend</button>
