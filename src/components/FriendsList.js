@@ -1,17 +1,17 @@
 import React from 'react';
-import axios from 'axios';
-
-// import axiosWithAuth from '../utils/axiosWithAuth';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 class FriendsList extends React.Component {
 	state = {
 		friends: []
 	};
-
+	
 	componentDidMount() {
+		console.log(this.state.friends);
 		const token = localStorage.getItem('token');
 
-		axios.get('http://localhost:9000/api/friends')
+		axiosWithAuth()
+			.get('http://localhost:9000/api/friends')
 			.then(res => {
 				this.setState({
 					friends: res,
@@ -24,12 +24,9 @@ class FriendsList extends React.Component {
 		return (
 			<div>
 				<h2>Friend's List</h2>
-				<p className='friend'>Joey Tribbiani - joey@friends.com</p>
-				<p className='friend'>Rachel Green - rachel@friends.com</p>
-				<p className='friend'>Chandler Bing - chandler@friends.com</p>
-				<p className='friend'>Ross Geller - ross@friends.com</p>
-				<p className='friend'>Monica Bing - Monica@friends.com</p>
-				<p className='friend'>Phoebe Buffay-Hannigan - phoebe@friends.com</p>
+				{/* {this.state.friends.map(friend => {
+					return <p>{friend.name} - {friend.email}</p>;
+				})} */}
 			</div>
 		);
 	}
